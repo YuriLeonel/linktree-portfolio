@@ -13,7 +13,7 @@ This LinkTree project serves as a central hub for all my social links and contac
 - **Vite**: A fast build tool and development server for modern web projects.
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 - **React Icons**: A collection of popular icons for React applications.
-- **Netlify**: Used for deploying the project. Check it out live [here](https://yleoneldev.netlify.app/).
+- **Vercel**: Used for deploying the project. Check it out live [here]([https://yleoneldev.netlify.app/](https://yleoneldev-linktree.vercel.app/)).
 
 ## Features
 

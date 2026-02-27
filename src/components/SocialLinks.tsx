@@ -1,7 +1,7 @@
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaBrain, FaEnvelope } from 'react-icons/fa';
 
 type SocialLink = {
-  icon:  React.FC<{ className?: string }>;
+  icon: React.FC<{ className?: string }>;
   url: string;
   ariaLabel: string;
 };
@@ -18,14 +18,14 @@ const socialLinks: SocialLink[] = [
     ariaLabel: 'LinkedIn profile',
   },
   {
-    icon: FaInstagram,
-    url: 'https://www.instagram.com/yurileonel_yl/?igsh=MXdsa3d5aWhwMjNueQ%3D%3D#',
-    ariaLabel: 'Instagram profile',
-  },
-  {
     icon: FaEnvelope,
     url: 'mailto:yurileonel.001@gmail.com',
     ariaLabel: 'Send email',
+  },
+  {
+    icon: FaBrain,
+    url: 'https://neural-architect.vercel.app/',
+    ariaLabel: 'Neural Architect project',
   },
 ];
 

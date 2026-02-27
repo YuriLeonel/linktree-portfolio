@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons';
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaBrain, FaEnvelope } from 'react-icons/fa';
 
 export type Link = {
   text: string;
@@ -13,7 +13,7 @@ const links: Link[] = [
     text: "GitHub",
     url: 'https://github.com/yurileonel',
     icon: FaGithub,
-    variant:"primary"
+    variant: "primary"
   },
   {
     text: "LinkedIn",
@@ -22,15 +22,15 @@ const links: Link[] = [
     variant: "secondary"
   },
   {
-    text: "Instagram",
-    url: 'https://www.instagram.com/yurileonel_yl/?igsh=MXdsa3d5aWhwMjNueQ%3D%3D#',
-    icon: FaInstagram,
-  },
-  {
     text: "Email",
     url: 'mailto:yurileonel.001@gmail.com',
     icon: FaEnvelope,
     variant: "secondary"
+  },
+  {
+    text: "Neural Architect",
+    url: 'https://neural-architect.vercel.app/',
+    icon: FaBrain,
   },
 ];
 

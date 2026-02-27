@@ -1,6 +1,0 @@
-name = "my-linktree"
-compatibility_date = "2025-01-29"
-
-[pages]
-build_command = "npm run build"
-build_output_dir = "dist"

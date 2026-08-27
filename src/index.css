@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 :root {
+  --neon-purple: #b829dd;
   --neon-cyan: #00f0ff;
   --neon-magenta: #ff00ff;
   --neon-green: #39ff14;
-  --neon-pink: #ff006e;
+  --neon-pink: #ff00ff;
   --bg-dark: #0a0a0f;
   --bg-card: rgba(15, 15, 25, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
@@ -120,5 +121,11 @@
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
   }
 }

@@ -11,6 +11,10 @@ export default function Glitch({ text, className = '', intensity = 'medium' }: G
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     const interval = setInterval(() => {
       setIsGlitching(true);
       timeoutRef.current = setTimeout(() => setIsGlitching(false), 200);

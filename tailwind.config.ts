@@ -1,5 +1,4 @@
 export default {
- darkMode: 'class',
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}'
@@ -7,11 +6,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb',    // Example blue
-        'primary-dark': '#1d4ed8',
-        secondary: '#4f46e5', // Example indigo
-        'secondary-dark': '#4338ca'
-      }
+        'neon-purple': '#b829dd',
+        'neon-green': '#00ff41',
+        'neon-pink': '#ff00ff',
+        'neon-blue': '#00d4ff',
+        'neon-cyan': '#00f0ff',
+        'cyber-dark': '#0a0a0f',
+        'cyber-darker': '#050505',
+        'cyber-light': '#1a1a2e',
+      },
+      fontFamily: {
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
     }
   },
   plugins: [],

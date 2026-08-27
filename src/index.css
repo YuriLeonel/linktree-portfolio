@@ -2,14 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --neon-cyan: #00f0ff;
+  --neon-magenta: #ff00ff;
+  --neon-green: #39ff14;
+  --neon-pink: #ff006e;
+  --bg-dark: #0a0a0f;
+  --bg-card: rgba(15, 15, 25, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(10, 10, 20, 0.6);
+}
+
 @layer base {
-  :root {
-    --gray-50: #f9fafb;
-    --gray-900: #111827;
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-cyan) var(--bg-dark);
   }
-  
-  .dark {
-    --gray-50: #111827;
-    --gray-900: #f9fafb;
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-magenta);
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--neon-magenta);
+    color: #000;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .neon-text-cyan {
+    color: var(--neon-cyan);
+    text-shadow:
+      0 0 7px var(--neon-cyan),
+      0 0 10px var(--neon-cyan),
+      0 0 21px var(--neon-cyan);
+  }
+
+  .neon-text-magenta {
+    color: var(--neon-magenta);
+    text-shadow:
+      0 0 7px var(--neon-magenta),
+      0 0 10px var(--neon-magenta),
+      0 0 21px var(--neon-magenta);
+  }
+
+  .neon-text-green {
+    color: var(--neon-green);
+    text-shadow:
+      0 0 7px var(--neon-green),
+      0 0 10px var(--neon-green),
+      0 0 21px var(--neon-green);
+  }
+
+  .glow-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glow-hover:hover {
+    box-shadow:
+      0 0 10px var(--neon-cyan),
+      0 0 20px var(--neon-cyan),
+      0 0 40px var(--neon-cyan);
+    transform: translateY(-2px);
+  }
+
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }

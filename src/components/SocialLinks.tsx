@@ -38,11 +38,11 @@ export default function SocialLinks() {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-secondary
-                     transition-colors duration-300 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+          className="text-gray-400 hover:text-neon-green transition-all duration-300 p-2 rounded-full
+                     hover:shadow-[0_0_10px_var(--neon-green)]"
           aria-label={ariaLabel}
         >
-          <Icon className="w-8 h-8" />
+          <Icon className="w-7 h-7" />
         </a>
       ))}
     </div>

@@ -1,51 +1,69 @@
-import { useEffect } from 'react';
-import useTheme from './hooks/useTheme';
-import ThemeToggle from './components/ThemeToggle';
 import SocialLinks from './components/SocialLinks';
 import links from './links.config';
 import LinkButton from './components/LinkButton';
+import Glitch from './components/Glitch';
+
+const particles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  left: `${((i * 37 + 13) * 7) % 100}%`,
+  top: `${((i * 53 + 29) * 11) % 100}%`,
+  delay: `${(i * 0.7) % 3}s`,
+}));
 
 export default function App() {
-  const { theme, toggleTheme } = useTheme();
   const name = 'Yuri Leonel';
+  const brand = 'YURI';
   const title = 'Software Engineer';
-  const copyright = `© ${new Date().getFullYear()} All rights reserved`;
-
-  useEffect(() => {
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(theme);
-  }, [theme]); 
 
   return (
-    <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300`}>
-      <div className="max-w-4xl mx-auto p-4 md:p-8">
-        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-        
-        <header className="mb-8 text-center">
-          <img 
-            src="/profile.jpg"
-            alt="Profile picture"
-            className="w-32 h-32 rounded-full mx-auto border-4 border-white/80 
-                     shadow-xl dark:border-gray-800/80 mb-6 object-cover"
+    <div className="min-h-screen bg-cyber-dark text-gray-300 cyber-grid relative overflow-hidden">
+      {/* Background particles */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {particles.map((p) => (
+          <div
+            key={p.id}
+            className="absolute w-1 h-1 bg-neon-green rounded-full opacity-30 animate-float"
+            style={{
+              left: p.left,
+              top: p.top,
+              animationDelay: p.delay,
+            }}
           />
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            { name }
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-2xl mx-auto px-6 py-16 flex flex-col min-h-screen">
+        <header className="mb-10 text-center">
+          <div className="relative inline-block mb-6">
+            <img
+              src="/profile.webp"
+              alt="Profile picture"
+              className="w-32 h-32 rounded-full mx-auto object-cover border-2 border-neon-cyan
+                         shadow-[0_0_20px_var(--neon-cyan)]"
+            />
+            <div className="absolute inset-0 rounded-full border border-neon-purple opacity-40" />
+          </div>
+
+          <h1 className="text-5xl font-mono font-bold mb-3 gradient-text">
+            <Glitch text={brand} />
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
-            { title }
+
+          <p className="text-lg text-gray-400 font-mono mb-1">{name}</p>
+          <p className="text-gray-500">
+            <span className="neon-text-green">&gt;</span> {title}
           </p>
         </header>
 
-        <main className="space-y-4 mb-8">
+        <main className="space-y-4 mb-10 flex-1">
           {links.map((link, index) => (
-            <LinkButton key={index} {...link} />
+            <LinkButton key={index} {...link} variant={index % 2 === 0 ? 'primary' : 'secondary'} />
           ))}
         </main>
 
-        <footer className="pt-8 border-t border-gray-200 dark:border-gray-800">
+        <footer className="pt-8 border-t border-white/10">
           <SocialLinks />
-          <p className="text-center mt-4 text-gray-600 dark:text-gray-400 text-sm">
-            { copyright}
+          <p className="text-center mt-6 text-gray-500 font-mono text-xs">
+            © {new Date().getFullYear()} {name}. Crafted with caffeine and code.
           </p>
         </footer>
       </div>

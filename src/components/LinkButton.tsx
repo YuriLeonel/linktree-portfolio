@@ -13,27 +13,28 @@ export default function LinkButton({
   children
 }: LinkButtonProps) {
   const variantClasses = {
-    primary: 'bg-primary text-white hover:bg-primary/80 dark:bg-primary-dark dark:hover:bg-primary-dark/80',
-    secondary: 'bg-secondary text-white hover:bg-secondary/80 dark:bg-secondary-dark dark:hover:bg-secondary-dark/80'
+    primary: 'text-white bg-neon-purple hover:bg-neon-purple/80 hover:shadow-[0_0_20px_var(--neon-purple)]',
+    secondary: 'text-neon-green border border-neon-green hover:bg-neon-green/10 hover:shadow-[0_0_20px_var(--neon-green)]'
   };
+
   return (
     <a
       href={url}
-      className={`group relative flex items-center justify-between p-6 w-full
-                 ${variantClasses[variant]} 
-                 rounded-xl shadow-lg transition-all duration-300
-                 hover:translate-y-[-2px] hover:shadow-xl`}
+      className={`group flex items-center justify-between p-5 w-full
+                 ${variantClasses[variant]}
+                 rounded-lg transition-all duration-300
+                 hover:translate-y-[-2px]`}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="flex items-center gap-6">
-        <Icon className="w-8 h-8 transition-transform group-hover:scale-110" />
+      <div className="flex items-center gap-5">
+        <Icon className="w-7 h-7 transition-transform group-hover:scale-110" />
         <div className="text-left">
-          <p className="font-semibold text-lg">{text}</p>
-          {children && <p className="text-sm opacity-90 mt-1">{children}</p>}
+          <p className="font-mono font-semibold text-lg">{text}</p>
+          {children && <p className="text-sm opacity-80 mt-1">{children}</p>}
         </div>
       </div>
-      <FiExternalLink className="w-6 h-6 opacity-75" />
+      <FiExternalLink className="w-5 h-5 opacity-75" />
     </a>
   );
 }
